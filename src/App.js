@@ -8,9 +8,12 @@ class App extends Component {
     translations: []
   }
 
-  handleChange = ({ target: { value } }) => {
-    this.setState({ content: value })
-    console.log(qtranslatexExtractor(value))
+  handleChange = ({ target: { value: content } }) => {
+    const newState = { content }
+    const translations = qtranslatexExtractor(content)
+    newState.translations =
+      translations && translations.length > 0 ? translations : []
+    this.setState(newState)
   }
 
   render() {
@@ -38,12 +41,12 @@ class App extends Component {
 
           {/* Results */}
           <section>
-            {translations.map((lang, text) => {
+            {translations.map(({ lang, text }, index) => {
               return (
-                <article className="Viewer">
-                  <h2 className="Viewer-title"> Your result:</h2>
+                <article key={index} className="Viewer">
+                  <h2 className="Viewer-title"> {lang}:</h2>
                   <textarea
-                    value={content}
+                    value={text}
                     className="Viewer-input"
                     name="result"
                   />
