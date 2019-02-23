@@ -72,7 +72,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            (Using QTranslate Extractor JS)
+            (Using QTranslate Extractor NPM JS Package)
           </a>
         </footer>
       </div>
