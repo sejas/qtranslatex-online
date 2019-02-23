@@ -1,8 +1,20 @@
 import React, { Component } from "react"
+import qtranslatexExtractor from "qtranslatex-extractor"
 import "./App.css"
 
 class App extends Component {
+  state = {
+    content: "",
+    translations: []
+  }
+
+  handleChange = ({ target: { value } }) => {
+    this.setState({ content: value })
+    console.log(qtranslatexExtractor(value))
+  }
+
   render() {
+    const { content, translations } = this.state
     return (
       <div className="App">
         <header className="App-header">
@@ -11,20 +23,33 @@ class App extends Component {
         <main>
           {/* Input */}
           <section>
-            <article class="Viewer">
+            <article className="Viewer">
               <h2 className="Viewer-title">
                 Paste your QTranslate Content here:
               </h2>
-              <textarea className="Viewer-input" name="source" />
+              <textarea
+                className="Viewer-input"
+                name="source"
+                value={content}
+                onChange={this.handleChange}
+              />
             </article>
           </section>
 
           {/* Results */}
           <section>
-            <article class="Viewer">
-              <h2 className="Viewer-title"> Your result:</h2>
-              <textarea className="Viewer-input" name="result" />
-            </article>
+            {translations.map((lang, text) => {
+              return (
+                <article className="Viewer">
+                  <h2 className="Viewer-title"> Your result:</h2>
+                  <textarea
+                    value={content}
+                    className="Viewer-input"
+                    name="result"
+                  />
+                </article>
+              )
+            })}
           </section>
         </main>
         <footer>
