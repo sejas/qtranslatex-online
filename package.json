@@ -1,7 +1,8 @@
 {
-  "name": "QTranslate-X-Extractor-Online",
+  "name": "qtranslate-x-extractor-online",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sejas.github.io/qtranslatex-online/",
   "dependencies": {
     "qtranslatex-extractor": "^0.0.5",
     "react": "^16.8.3",
