@@ -26,7 +26,7 @@ class App extends Component {
         <main>
           {/* Input */}
           <section>
-            <article className="Viewer">
+            <article className="Viewer Viewer--source">
               <h2 className="Viewer-title">
                 Paste your QTranslate Content here:
               </h2>
@@ -40,15 +40,16 @@ class App extends Component {
           </section>
 
           {/* Results */}
-          <section>
+          <section className="Translations">
             {translations.map(({ lang, text }, index) => {
               return (
-                <article key={index} className="Viewer">
-                  <h2 className="Viewer-title"> {lang}:</h2>
+                <article key={index} className="Viewer Viewer--result">
+                  <h2 className="Viewer-title"> {lang.toUpperCase()}</h2>
                   <textarea
                     value={text}
                     className="Viewer-input"
                     name="result"
+                    readOnly
                   />
                 </article>
               )
@@ -63,6 +64,15 @@ class App extends Component {
             rel="noopener noreferrer"
           >
             Developed with ♥ by Antonio Sejas
+          </a>
+          <br />
+          <a
+            className="App-link"
+            href="https://www.npmjs.com/package/qtranslatex-extractor"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            (Using QTranslate Extractor JS)
           </a>
         </footer>
       </div>
