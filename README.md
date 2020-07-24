@@ -1,6 +1,6 @@
 # qtranslatex-online
 
-This is an example of how to use the npm package `qtranslatex-extractor`.
+This is a React Web App to show to use the `qtranslatex-extractor` npm package works.
 
 NPM Package available in : [https://www.npmjs.com/package/qtranslatex-extractor](https://www.npmjs.com/package/qtranslatex-extractor)
 
